@@ -86,20 +86,19 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener {
 
         //draw background position and basket position
         g.drawImage(new ImageIcon("res/bg.png").getImage(), 0, 0, WIDTH, HEIGHT, this);
-        g.drawImage(basket, basketX, basketY, 100, 60, this);
+        g.drawImage(basket, basketX, basketY, 100, 100, this);
 
         //draw fruit in fruits array position
         for (Fruit fruit : fruits) {
-            g.drawImage(fruit.image, fruit.x, fruit.y, 50, 50, this);
+            g.drawImage(fruit.image, fruit.x, fruit.y, 50, 60, this);
         }
 
         //draw score text and time left text in black color
         g.setColor(Color.BLACK);
         g.setFont(new Font("Arial", Font.BOLD, 20));
-        g.drawString("Time: " + timeLeft, 20, 30);
-        g.drawString("Score: " + score, 20, 60);
+        g.drawString("" + timeLeft, 230, 30);
+        g.drawString("Score: " + score, 10, 30);
     }
-
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -192,7 +191,6 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener {
             basketX = WIDTH / 2 - 50;
             timer.start();
         }
-
 
         //load highscore from number in textfile
         private void loadHighScore() {
